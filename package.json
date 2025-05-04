@@ -10,6 +10,7 @@
     "postinstall": "prisma generate",
     "db:gen": "prisma generate",
     "migrate": "prisma migrate deploy",
+    "migrate:dev": "prisma migrate dev",
     "lint": "eslint '{src,test}/**/*.ts'",
     "lint:fix": "eslint --fix '{src,test}/**/*.ts'",
     "format": "prettier --write 'src/**/*.ts'"
