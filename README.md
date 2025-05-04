@@ -1,4 +1,4 @@
-# Backend API
+# User Management Backend API
 
 A backend REST API built with **Fastify** (TypeScript), **Prisma**, and **PostgreSQL**, designed to be containerized with **Docker**. This service handles authentication, user management, and serves a Swagger-based API documentation.
 
