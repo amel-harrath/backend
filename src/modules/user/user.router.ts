@@ -70,10 +70,10 @@ export async function userRoutes(fastify: FastifyInstance): Promise<void> {
             limit: { type: 'integer', minimum: 1, maximum: 100, default: 10 },
             sortBy: {
               type: 'string',
-              enum: ['id', 'firstname', 'lastname', 'email', 'birthDate'],
+              enum: ['id', 'updatedAt', 'createdAt', 'email', 'birthDate'],
               default: 'id',
             },
-            order: {
+            sortOrder: {
               type: 'string',
               enum: ['asc', 'desc'],
               default: 'asc',
