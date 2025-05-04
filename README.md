@@ -44,7 +44,7 @@ HOST=
 docker-compose up --build
 ```
 
-## 🧪 Running Locally (without Docker)
+## 🔮 Running Locally (without Docker)
 
 ### 1. Install dependencies
 
@@ -75,6 +75,16 @@ npm run seed
 ```bash
 npm run dev
 ```
+
+## 🧪 Seeded User for Testing
+
+After running the seed script, a default user is created in the database. You can use this user to test the authentication flow:
+
+Email: admin@example.com
+
+Password: testAdmin@2025
+
+You can use this user to log in via the frontend and access the dashboard to manage users.
 
 ## 📚 API Documentation
 
