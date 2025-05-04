@@ -110,7 +110,7 @@ docker-compose up --build
 ## 🧱 Future Enhancements
 
 1. **Implement Role-Based Access Control (RBAC)**:  
-   In the future, we can add roles to the users (e.g., Admin, User, Moderator) and manage access rights based on these roles. This would involve extending the backend API to handle roles for each user, ensuring that only authorized users have access to certain routes or functionalities.
+   In the future, we can add roles to the users (e.g., Admin, User, Moderator) and manage access rights based on these roles.
 
 2. **User Permissions Management**:  
    Along with roles, we can consider implementing user permissions to fine-tune which actions a user can perform (e.g., view only, create, update, delete). This would be helpful to create a more robust system that controls access to different parts of the application.
@@ -122,4 +122,4 @@ docker-compose up --build
    Future improvements could involve adding more CRUD operations on other resources or integrating external services into the application (e.g., email notifications, file uploads, etc.).
 
 5. **Testing**:  
-   Add unit and integration tests using libraries like [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). This will ensure that the app is robust and maintains high quality through future updates.
+   Add unit and integration tests using libraries like [Jest](https://jestjs.io/). This will ensure that the app is robust and maintains high quality through future updates.
