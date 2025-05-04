@@ -8,7 +8,7 @@ const PORT: number = parseInt(process.env.PORT || '3000', 10);
 const host: string = process.env.API_HOST || '0.0.0.0';
 
 // Start the Fastify server
-const start = async () => {
+const start = async (): Promise<void> => {
   try {
     const server = await fastify({ logger: true });
     await server.register(swagger, {
@@ -18,8 +18,8 @@ const start = async () => {
           description: 'API to manage users',
           version: '1.0.0',
         },
-        host: 'localhost:3000',
-        schemes: ['http'],
+        host: process.env.HOST || 'localhost:3000',
+        schemes: ['http', 'https'],
         consumes: ['application/json'],
         produces: ['application/json'],
         tags: [
@@ -53,10 +53,11 @@ const start = async () => {
     });
 
     server.register(cors, {
-      origin: true,
+      origin: 'http://localhost:5173',
+      credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     });
-    server.register(userRoutes);
+    server.register(userRoutes, { prefix: '/api' });
 
     server.setErrorHandler((error, _request, reply) => {
       server.log.error(error);

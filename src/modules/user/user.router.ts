@@ -54,7 +54,6 @@ export async function userRoutes(fastify: FastifyInstance): Promise<void> {
     loginHandler,
   );
 
-  //exemple /users?page=1&limit=10&sortBy=email&search=foo
   fastify.get(
     '/users',
     {

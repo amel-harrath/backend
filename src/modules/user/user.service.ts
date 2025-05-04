@@ -1,7 +1,7 @@
 import { Prisma } from '@prisma/client';
 import { ERRORS } from '../../constants/request';
 import { AppError } from '../../utils/errors.helper';
-import { compareHash, genSalt } from '../../utils/user.helper';
+import { compareHash, genSalt, validateUser } from '../../utils/user.helper';
 import { signToken } from '../../utils/auth.helper';
 import { db } from '../../config/prisma';
 import { IUserCreateOrUpdateDto, IUsersQueryDto } from './user.schema';
@@ -46,6 +46,7 @@ export const createUser = async (data: IUserCreateOrUpdateDto) => {
         ERRORS.USER_EXISTS.statusCode,
       );
     }
+    validateUser(data);
     const hashPass = await genSalt(10, data.password);
 
     const createdUser = await db.user.create({
@@ -125,6 +126,7 @@ export const updateUser = async (id: number, data: IUserCreateOrUpdateDto) => {
         ERRORS.USER_DOES_NOT_EXIST.statusCode,
       );
     }
+    validateUser(data);
     let hashPass = user.password;
     if (data.password) {
       hashPass = await genSalt(10, data.password);
